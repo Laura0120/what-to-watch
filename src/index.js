@@ -1,17 +1,36 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom';
+import {createStore, applyMiddleware} from "redux";
+import {Provider} from "react-redux";
+import thunk from "redux-thunk";
+import {composeWithDevTools} from "redux-devtools-extension";
+import {createAPI} from "./services/api";
+import App from './components/app/app';
+import rootReducer from "./store/reducers/root-reducer";
+import {fetchMovies, checkAuth, fetchPromoMovie} from "./store/api-actions";
+import {ActionCreator} from "./store/action";
+import {AuthorizationStatus} from "./const";
+import {redirect} from "./store/middlewares/redirect";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const api = createAPI(
+    () => store.dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH))
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const store = createStore(
+    rootReducer,
+    composeWithDevTools(
+        applyMiddleware(thunk.withExtraArgument(api)),
+        applyMiddleware(redirect)
+    )
+);
+store.dispatch(fetchMovies());
+store.dispatch(fetchPromoMovie());
+store.dispatch(checkAuth());
+
+ReactDom.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.querySelector(`#root`)
+);
+
