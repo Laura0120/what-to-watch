@@ -141,10 +141,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onAddReviewClick(evt, id) {
     evt.preventDefault();
-    dispatch(ActionCreator.redirectToRoute(`${id}/review`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.FILM_ID_REVIEW.replace(":id", id)}`));
   },
   onPlayClick(id) {
-    dispatch(ActionCreator.redirectToRoute(`/player/${id}`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.PLAYER_ID.replace(":id", id)}`));
   },
   onFavoriteClick(id, isFavorite) {
     dispatch(changeFavorite(id, isFavorite));
@@ -158,12 +158,12 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchCommentsByMovieId(id));
   },
   onMovieClick(id) {
-    dispatch(ActionCreator.redirectToRoute(`/films/${id}`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.FILM_ID.replace(":id", id)}`));
     dispatch(fetchMovieById(id));
     dispatch(fetchCommentsByMovieId(id));
   },
   onMainPageClick() {
-    dispatch(ActionCreator.redirectToRoute(`/`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.MAIN}`));
   }
 });
 export {Movie};

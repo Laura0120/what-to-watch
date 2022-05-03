@@ -1,5 +1,5 @@
 import {ActionCreator} from "./action";
-import {AuthorizationStatus, APIRoute} from "../const";
+import {AuthorizationStatus, APIRoute, AppRoute} from "../const";
 import {getErrorMessage} from "../store/error-message";
 
 
@@ -48,14 +48,14 @@ export const login = ({login: email, password}) => (dispatch, _getState, api) =>
   api.post(APIRoute.LOGIN, {email, password})
     .then(() => {
       dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
-      dispatch(ActionCreator.redirectToRoute(`/`));
+      dispatch(ActionCreator.redirectToRoute(`${AppRoute.MAIN}`));
     }));
 
 export const addReview = (id, {rating, comment}) => (dispatch, _getState, api) => (
   api.post(`/comments/${id}`, {rating, comment})
     .then(({data}) => {
       dispatch(ActionCreator.loadCommentsByMovieId(data));
-      dispatch(ActionCreator.redirectToRoute(`/films/${id}`));
+      dispatch(ActionCreator.redirectToRoute(`${AppRoute.FILM_ID.replace(":id", id)}`));
       dispatch(ActionCreator.postingComment(false));
     })
     .catch((err) => {

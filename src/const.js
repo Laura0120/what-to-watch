@@ -14,13 +14,15 @@ export const AuthorizationStatus = {
   NO_AUTH: `NO_AUTH`,
 };
 
+const mainUrl = `${process.env.PUBLIC_URL}`;
+
 export const AppRoute = {
-  MAIN: `/`,
-  LOGIN: `/login`,
-  MY_LIST: `/mylist`,
-  FILM_ID: `/films/:id`,
-  FILM_ID_REVIEW: `/films/:id/review`,
-  PLAYER_ID: `/player/:id`,
+  MAIN: mainUrl,
+  LOGIN: `${mainUrl}/login`,
+  MY_LIST: `${mainUrl}/mylist`,
+  FILM_ID: `${mainUrl}/films/:id`,
+  FILM_ID_REVIEW: `${mainUrl}/films/:id/review`,
+  PLAYER_ID: `${mainUrl}/player/:id`,
 };
 
 export const APIRoute = {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {AuthorizationStatus} from "../../const";
+import {AuthorizationStatus, AppRoute} from "../../const";
 import {FUNCTION, STRING} from '../../prop-type';
 
 const UserBlock = (props) => {
@@ -10,7 +10,7 @@ const UserBlock = (props) => {
     <div className='user-block'>
       {authorizationStatus === AuthorizationStatus.AUTH ?
         <div className='user-block__avatar' onClick={onMyListButtonClick}>
-          <img src='img/avatar.jpg' alt='User avatar' width='63' height='63' />
+          <img src={`${AppRoute.MAIN}/img/avatar.jpg`} alt='User avatar' width='63' height='63' />
         </div> :
         <div className="user-block">
           <a href="login" className="user-block__link">Sign in</a>

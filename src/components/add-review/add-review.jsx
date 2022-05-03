@@ -87,7 +87,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onMoviePageClick(id) {
-    dispatch(ActionCreator.redirectToRoute(`/films/${id}`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.FILM_ID.replace(":id", id)}`));
   },
   onMyListButtonClick() {
     dispatch(fetchFavorite());
@@ -98,7 +98,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(addReview(id, comment));
   },
   onMainPageClick() {
-    dispatch(ActionCreator.redirectToRoute(`/`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.MAIN}`));
   }
 });
 

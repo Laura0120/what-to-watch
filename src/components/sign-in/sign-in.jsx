@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {login} from "../../store/api-actions";
 import {FUNCTION} from '../../prop-type';
 import {ActionCreator} from '../../store/action';
+import {AppRoute} from "../../const";
 
 const SignIn = (props) => {
   const {onSubmit, onMainPageClick} = props;
@@ -105,7 +106,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(login(authData));
   },
   onMainPageClick() {
-    dispatch(ActionCreator.redirectToRoute(`/`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.MAIN}`));
   }
 });
 

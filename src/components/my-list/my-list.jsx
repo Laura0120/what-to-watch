@@ -5,6 +5,7 @@ import {FUNCTION, MOVIES} from '../../prop-type';
 import MovieListWrapped from '../movie-list/movie-list';
 import {adaptToClient} from '../../utils/adapt';
 import {ActionCreator} from '../../store/action';
+import {AppRoute} from '../../const';
 
 const MyList = (props) => {
   const {movies, onMovieClick, onMainPageClick} = props;
@@ -29,7 +30,7 @@ const MyList = (props) => {
 
         <div className='user-block'>
           <div className='user-block__avatar'>
-            <img src='img/avatar.jpg' alt='User avatar' width='63' height='63' />
+            <img src={`${AppRoute.MAIN}/img/avatar.jpg`} alt='User avatar' width='63' height='63' />
           </div>
         </div>
 
@@ -75,10 +76,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onMovieClick(id) {
-    dispatch(ActionCreator.redirectToRoute(`/films/${id}`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.FILM_ID.replace(":id", id)}`));
   },
   onMainPageClick() {
-    dispatch(ActionCreator.redirectToRoute(`/`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.MAIN}`));
   }
 });
 export {MyList};

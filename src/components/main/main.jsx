@@ -109,7 +109,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onMovieClick(id) {
-    dispatch(ActionCreator.redirectToRoute(`/films/${id}`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.FILM_ID.replace(":id", id)}`));
   },
   onChangeGenre(activeGenre) {
     dispatch(ActionCreator.changeGenre(activeGenre.target.textContent));
@@ -118,7 +118,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changeFavorite(id, isFavorite));
   },
   onPlayClick(id) {
-    dispatch(ActionCreator.redirectToRoute(`/player/${id}`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.PLAYER_ID.replace(":id", id)}`));
   },
   onMyListButtonClick() {
     dispatch(fetchFavorite());

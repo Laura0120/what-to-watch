@@ -117,7 +117,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onExitClick(id) {
-    dispatch(ActionCreator.redirectToRoute(`/films/${id}`));
+    dispatch(ActionCreator.redirectToRoute(`${AppRoute.FILM_ID.replace(":id", id)}`));
   },
   loadMovie(id) {
     dispatch(fetchMovieById(id));

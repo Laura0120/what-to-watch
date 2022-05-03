@@ -2,7 +2,8 @@
   "name": "what-to-watch",
   "version": "0.1.0",
   "private": true,
-  "homename": "https://Laura0120.github.io/what-to-watch",
+  "homepage": "https://Laura0120.github.io/what-to-watch",
+  "description": "Личный проект «Что посмотреть»",
   "devDependencies": {
     "axios-mock-adapter": "1.17.0",
     "enzyme": "3.11",
