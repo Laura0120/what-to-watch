@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/what-to-watch/static/js/main.ea9550cd.js",
+    "main.js": "/what-to-watch/static/js/main.b06a1605.js",
     "index.html": "/what-to-watch/index.html",
-    "main.ea9550cd.js.map": "/what-to-watch/static/js/main.ea9550cd.js.map"
+    "main.b06a1605.js.map": "/what-to-watch/static/js/main.b06a1605.js.map"
   },
   "entrypoints": [
-    "static/js/main.ea9550cd.js"
+    "static/js/main.b06a1605.js"
   ]
 }
