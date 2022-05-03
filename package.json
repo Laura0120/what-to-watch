@@ -2,6 +2,7 @@
   "name": "what-to-watch",
   "version": "0.1.0",
   "private": true,
+  "homename": "https://Laura0120.github.io/what-to-watch",
   "devDependencies": {
     "axios-mock-adapter": "1.17.0",
     "enzyme": "3.11",
@@ -15,8 +16,6 @@
     "redux-mock-store": "1.5.4"
   },
   "dependencies": {
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
     "axios": "0.19.2",
     "history": "4.10.1",
     "moment": "2.29",
@@ -26,16 +25,20 @@
     "react-moment": "1.0",
     "react-redux": "7.2.0",
     "react-router-dom": "5.1.2",
+    "react-scripts": "5.0.1",
     "redux": "4.0.5",
     "redux-devtools-extension": "2.13.8",
     "redux-thunk": "2.3.0",
-    "reselect": "4.0.0"
+    "reselect": "4.0.0",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
